@@ -22,8 +22,8 @@ public class OperationMetierImpl implements OperationMetier {
     @Override
     @Transactional
     public boolean verser(String code, double montant, Long codeEmp) {
-        Compte cp = compteRepository.findOne(code);
-        Employe em = employeRepository.findOne(codeEmp);
+        Compte cp = compteRepository.getOne(code);
+        Employe em = employeRepository.getOne(codeEmp);
         Operation o = new Versement();
         o.setDateOperation(new Date());
         o.setMontant(montant);
@@ -37,9 +37,9 @@ public class OperationMetierImpl implements OperationMetier {
     @Override
     @Transactional
     public boolean retirer(String code, double montant, Long codeEmp) {
-        Compte cp = compteRepository.findOne(code);
+        Compte cp = compteRepository.getOne(code);
         if(cp.getSolde()<montant) throw new RuntimeException("Solde est insuffisant");
-        Employe em = employeRepository.findOne(codeEmp);
+        Employe em = employeRepository.getOne(codeEmp);
         Operation o = new Retrait();
         o.setDateOperation(new Date());
         o.setMontant(montant);

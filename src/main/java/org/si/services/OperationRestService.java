@@ -1,6 +1,7 @@
 package org.si.services;
 
 import org.si.Metier.OperationMetier;
+import org.si.Metier.PageOperation;
 import org.si.entities.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,5 +21,9 @@ public class OperationRestService {
     @RequestMapping(value = "/virement", method = RequestMethod.PUT)
     public boolean virement(@RequestParam String cpte1,@RequestParam String cpte2, @RequestParam double montant, @RequestParam Long codeEmp){
         return operationMetier.virement(cpte1, cpte2, montant, codeEmp);
+    }
+    @RequestMapping(value = "/operations", method = RequestMethod.GET)
+    public PageOperation getOperations(@RequestParam String codeCompte, @RequestParam int page, @RequestParam int size) {
+        return operationMetier.getOperations(codeCompte, page, size);
     }
 }

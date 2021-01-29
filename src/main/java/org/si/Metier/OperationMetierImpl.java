@@ -5,6 +5,9 @@ import org.si.dao.EmployeRepository;
 import org.si.dao.OperationRepository;
 import org.si.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,5 +59,18 @@ public class OperationMetierImpl implements OperationMetier {
         retirer(cpte1,montant,codeEmp);
         verser(cpte2,montant,codeEmp);
         return true;
+    }
+
+    @Override
+    public PageOperation getOperations(String codeCompte, int page, int size) {
+       /* Page<Operation> ops=operationRepository.getOperations(codeCompte,new PageRequest(page,size, Sort.Direction.ASC,"id"));
+        //Compte cp=compteRepository.findOne(codeCompte);
+        //Page<Operation> ops2=operationRepository.findByCompte(cp,new PageRequest(page,size));
+        */PageOperation pOp=new PageOperation();
+       /* pOp.setOperations(ops.getContent());
+        pOp.setNombreOperations(ops.getNumberOfElements());
+        pOp.setPage(ops.getNumber());
+        pOp.setTotalOperations(ops.getTotalPages());*/
+        return pOp;
     }
 }

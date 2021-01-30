@@ -22,4 +22,9 @@ public class CompteMetierImp implements CompteMetier{
     public List<Compte> getCompte(String code) {
         return compteRepository.findAll();
     }
+
+    @Override
+    public List<Compte> getAllComptes() {
+        return compteRepository.findAll();
+    }
 }

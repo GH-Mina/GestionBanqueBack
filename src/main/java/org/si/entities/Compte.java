@@ -64,7 +64,7 @@ public abstract class Compte implements Serializable {
     public void setSolde(double solde) {
         this.solde = solde;
     }
-
+    @JsonIgnore
     public Client getClient() {
         return client;
     }
@@ -72,7 +72,7 @@ public abstract class Compte implements Serializable {
     public void setClient(Client client) {
         this.client = client;
     }
-
+    @JsonIgnore
     public Employe getEmploye() {
         return employe;
     }

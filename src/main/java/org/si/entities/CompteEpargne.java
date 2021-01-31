@@ -1,12 +1,7 @@
 package org.si.entities;
 
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
 import java.util.Date;
 
-@Entity
-@DiscriminatorValue("CE")
 public class CompteEpargne extends Compte {
     private double taux;
 

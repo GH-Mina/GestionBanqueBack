@@ -1,12 +1,7 @@
 package org.si.entities;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorValue("CC")
-@DiscriminatorColumn(length = 2)
 public class CompteCourant extends Compte {
     private double decouvert;
 

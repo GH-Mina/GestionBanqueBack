@@ -1,23 +1,24 @@
 package org.si.Metier;
 
-import org.si.dao.ClientRepository;
 import org.si.entities.Client;
+import org.si.entities.Compte;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
 public class ClientMetierImp implements ClientMetier {
-    @Autowired
-    private ClientRepository clientRepository;
+    private static HashMap<String, Client> list = new HashMap<>();
     @Override
     public Client saveClient(Client c) {
-        return clientRepository.save(c);
+        c.setCodeClient(list.size() + 1L);
+        return c;
     }
 
     @Override
     public List<Client> listClient() {
-        return clientRepository.findAll();
+        return (List<Client>) list;
     }
 }

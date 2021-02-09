@@ -14,7 +14,7 @@
 	<groupId>org.si</groupId>
 	<artifactId>BanqueSI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>BanqueSI</name>
 	<description>BanqueSi Project</description>
 

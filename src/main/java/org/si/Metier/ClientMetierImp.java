@@ -5,6 +5,7 @@ import org.si.entities.Compte;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -19,6 +20,6 @@ public class ClientMetierImp implements ClientMetier {
 
     @Override
     public List<Client> listClient() {
-        return (List<Client>) list;
+        return new ArrayList<>(list.values());
     }
 }

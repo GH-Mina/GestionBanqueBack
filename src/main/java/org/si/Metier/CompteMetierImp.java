@@ -14,7 +14,11 @@ import java.util.List;
 public class CompteMetierImp implements CompteMetier{
     private static HashMap<String, Compte> listComptes = new HashMap<String, Compte>();
     static{
-        listComptes.put("123", new CompteCourant());
+         CompteCourant c= new CompteCourant("11", new Date(),60000, 2000);
+        CompteCourant c1= new CompteCourant("22", new Date(),70000, 300);
+
+        listComptes.put("1", c);
+        listComptes.put("2", c1);
 
     }
 
